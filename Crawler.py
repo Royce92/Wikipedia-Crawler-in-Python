@@ -39,7 +39,7 @@ def download(url):
                     if content.count(key) >= 2 and w not in valid:
                         valid.append(w)
                         save = w.replace("http://en.wikipedia.org/wiki/","").replace("/","")
-                        file = open('C:/Users/jefrey/Desktop/crawlerr/Source/'+save+".txt","w", encoding='utf-8')
+                        file = open('/'+save+".txt","w", encoding='utf-8')
                         file.write(html2text.html2text(soup))
                         file.close()
                         seeds.extend([w])
