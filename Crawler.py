@@ -1,10 +1,14 @@
 from bs4 import BeautifulSoup
 import requests
 import html2text
+
+
 seeds = ['http://en.wikipedia.org/wiki/Cloud_computing','http://en.wikipedia.org/wiki/Server_(computing)']
 wiki= 'http://en.wikipedia.org'
 keyword = ['computing', 'cloud', 'virtual', 'network', 'enterprise', 'VM', 'hypervisor', 'storage', 'datacenter', 'server']
 q = []
+
+
 ##Download all the links from the seed
 def getdata(s):
     source = requests.get(s)
@@ -48,13 +52,13 @@ def download(url):
                         print("Url appended to the queued", w)
                     else:
                         badUrl.append(w)
-                        break
-                    
+                        break 
         return valid
 
-def main(url):
+def handler(url):
     while len(url) > 0 and counter < 500:
         for seed in url:
             download(seed)
-main(seeds)
+if __name__ == '__main__':            
+    handler(seeds)
 
